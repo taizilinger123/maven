@@ -1,0 +1,41 @@
+xml文件是由若干组标签组成的,一组标签包含前标签和后标签(结束标签)缺一不可,标签可以包含其他标签或文本,前标签中可以定义属性
+格式：属性名="属性值"(值需要被""括上),标签名是区分大小写的
+一个xml文件中必须且只能有一个根元素,所谓根元素不再被任何元素包含就是根
+xml可以描述一个复杂的树状结构
+
+<a>
+   <!-- hhahshua注释 -->
+   &lt; 小于<
+   &gt; 大于>
+   &quot; 双引号"
+   &apos; 单引号'
+   &amp; 与字符(和字符)&
+</a>
+
+<a>
+  <![CDATA[
+           在html中:<a><a>表示超链接
+  ]]>
+</a>
+
+http://doc.52liming.com/  达内开发文档服务
+导xml包->双击pom.xml->Dependencies->Add->导完包ctrl+s保存->在Maven Dependencies项目文件夹里能看到导入的jar包
+//@lang属性是lang的
+/bootstore/book/title/@lang
+/bookstore/book/[1]  获取bookstore下的第一个book
+/bookstore/book/[last]要最后一个
+/bookstore/book/[last()-1]要倒数第二个
+/bookstore/book/[position()<3]要前2个
+/bookstore/book/[position()>last()-1]要后几个
+//title获取所有的title
+//title[@*]获取有title标签的所有带属性的标签
+//*所有标签都要
+/*/*要获取二级标签
+/bookstore/*获取一级标签叫bookstore下的所有二级标签
+//title[@lang]必须含有lang的属性的title标签
+//title[@lang='eng']必须含有lang的属性的且值等于eng的title标签
+/bookstore/book[price]在bookstore标签下的book含有price的子标签才要,不含有price都不要
+/bookstore/book[price>35.00]在bookstore标签下的book含有price的子标签且price的值大于35才要,不含有price都不要
+/bookstore/book[price>35.00]/title在bookstore标签下的book标签下的price标签的值大于35下的title标签才要
+/bookstore/book/price[.>35.00]在bookstore标签下的book标签下的price标签的值大于35下的price标签才要
+/bookstore/book/price[price>35.00]在bookstore标签下的book标签下的price标签的下的price标签值大于35下的price标签才要 
